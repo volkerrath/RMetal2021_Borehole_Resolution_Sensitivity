@@ -45,17 +45,17 @@
 \title{Borehole temperatures revealsurface conditions during the Last Glacial Cycle}
 
 \Author[1,2]{Volker}{Rath}
-\Author[3]{Ilmo}{Kukkonen}
-\Author[4]{Jan}{Sundberg}
-\Author[5]{Jens-Ove}{Naeslund}
-\Author[6]{Yuriy}{Maystrenko}
+\Author[3]{Esther}{Heckenbach}
+\Author[4]{Darius}{Mottaghy}
+% \Author[5]{Ben}{Norden}
+% \Author[6]{Sven}{Fuchs}
 
 \affil[1]{Dublin Institute for Advanced Studies, Dublin, Ireland }
 \affil[2]{Universit\'e de Savoie Montblanc, ISTerre, Le Bourget du Lac, France}
-\affil[3]{Geophysical Institute, Helsinki Iniversity, Helsinki, Finland}
-\affil[4]{JK Innova AB, Vadstena, Sweden }
-\affil[5]{Swedish Nuclear Fuel and Waste Management Company (SKB),Stockholm, Sweden}
-\affil[6]{Geological Survey of Norway (NGU), Trondheim, Norway}
+\affil[3]{Geoforschungszentrum, Potsdam, Germany}
+\affil[4]{Aachen University of Applied Sciences, J\"ulich, Germany}
+% \affil[5]{Geoforschungszentrum, Potsdam, Germany}
+% \affil[6]{Geoforschungszentrum, Potsdam, Germany}
 
 
 
@@ -100,12 +100,12 @@ signature of the last glacial maximum (LGM, $\approx$20~kyr BP) depths between 1
 depending on the effective thermal diffusivity of the subsurface. A general de­scription of this 
 method can be found in the monograph of \citet{Bodri2007a}. Since the seminal publi­cation of 
 \citet{Lachenbruch1986a} this method has been employed in many studies on global, regional, or local 
-scale (see the recent review of González-Rouco et al 2009, and the numerous references given 
+scale (see the recent review of \citet{Gonzalez-Rouco2009a}, and the numerous references given 
 therein). Most of these studies were based on very shallow boreholes (<500~m), thus only allowing a 
 characterization of at most the last 
 few centuries. Though already one of the first studies already dealt with the signature of the last 
 glacial cycle \citep{Hotchkiss1934a}, the analysis of deeper boreholes has been less common 
-\citep{Demezhko2012a,Kukkonen2011a,Kukkonen2011b,Chouinard2009a,Majorowicz2008a,Rath2007a,
+\citep{Demezhko2012a,Kukkonen2011a,Kukkonen2011c,Chouinard2009a,Majorowicz2008a,Rath2007a,
 Mottaghy2006a,Clauser1995a}. This is partly because of the lack of appropriate boreholes, partly 
 becvause the diffusion-like behavior of heat conduction implies that the resolution of GSTH 
 reconstructions decreases fast with age \cite[e.g.][]{Demezhko2001a}. We expect dominant signatures 
@@ -120,12 +120,6 @@ visible. Knowing the effects of the ling-term GSTH is not only crucial in the pa
 interpretation, but also will improve the significant bias in the estimate of ``geothermal'' 
 background heat­ flow \cite[e.g.][]{Westaway2013a,Majorowicz2011a,Slagstad2009a}. 
 
-\begin{figure} 
-\begin{center}
-\includegraphics[width=0.99\columnwidth]{Figures/BoreholeMap.png} 
-\caption{Boreholes mentioned in this study.}
-\end{center}
-\end{figure}
 
 \section{Physical and mathematical background}
 
@@ -145,54 +139,15 @@ goodness-of-fit cannot be the single criterion for the quality of the solution.
 Most current software for the estimation of GSTHs from borehole temperature profiles is based on a 
 one-dimensional, conduction-only forward model.
 
-\section{Borehole Data and General Setup}
+\section{Theoretical Backrgound for the NumericaL Experiments}
 \label{sec:setup}
 
-We have tied to 
-
-As already pointed out in the introduction, the boreholes used in this study were not drilled for 
-purely scientifc reasons, with the notable exception of  OKU. In particular, this means that the 
-data sets availble are very inhomogeneous. Data and other relevant information site have to be 
-pre-processed in a way appropriate for the given site, and assumptions have to be made accordinly. 
-For the reconstruction of GSTHs buy means of inverse methods the following tasks need to be 
-fullfilled in practice:
-
-\subsection{Definition of the forward model}
-As a first step, this includes the definition of appropriate spatial and temporal meshes. In this 
-study, the spatial mesh is generally equidistant to the maximal depth  of the borehole, which 
-guarantees equal statistical weights to the data associated to mesh nodes. For larger depths, cell 
-sizes increase logarithmically until reaching a maximum extent of 5000~m. The time discretization 
-starts at 10~yrs~BP, inceasing logarithmically to 110~kyrs~BP, which is the approximate periodicity
-of glacial cycles in the last 800~kyr. The necessity to resolve the relevent tmperature changes 
-requires 300 to 600 cells for this interval. 
-
-\subsection{Setup of the inverse problem.} process and/or interpolate temperatures to mesh nodes, 
-and choose the parameter vector $\mathbf{m}$.
-
- Thus 
-
-\section{Results}
-\subsection{Outokumpu,Finland}
-\subsection{Olkiluoto,Finland}
-\subsection{Forsmark, Sweden}
-\subsection{Laxemar, Sweden}
-\subsection{Bronn, Norway}
-
-\conclusions  %% \conclusions[modified heading if necessary]
-TEXT
-
-%% The following commands are for the statements about the availability of data sets and/or software code corresponding to the manuscript.
-%% It is strongly recommended to make use of these sections in case data sets and/or software code have been part of your research the article is based on.
-
-\codedataavailability{TEXT} %% use this section when having data sets and software code available
+Data and other relevant information site have to be pre-processed in a way appropriate for the given site, and assumptions have 
+to be made accordingly. 
 
 
-
-
-\appendix
-
-\section{Forward modelling}
-\label{app:fwd}
+\subsection{Forward model}
+\label{sec:fwd}
 The results presented in this article are based on one-dimensional, conduction-only forward 
 modelling. Thermal conduction in rocks is based on the theory given by \citet{Carslaw1959a} for 
 the heat conduction equation 
@@ -248,10 +203,8 @@ observed temperatures and measured petrophysical properties.}
 \label{fig:FD}
 \end{figure}
 
-
-
-\section{Inversion techniques: Tikhonov}
-\label{app:tikh}
+\subsection{Inversion techniques}
+\label{sec:tinv}
 For the deterministic approach we seek to minimize an objective function 
 $\Theta$ which is defined by
 
@@ -382,8 +335,6 @@ particular, all runs shown here were run with a uniform error of 0.1~K for the t
 usually a reasonable estimate for this quantity. Note that this error includes not only the 
 measurement error, which is at least one order of magnitude smaller, but also some of errors 
 related to the misspecification of the model (e.g., the use of average properties or interpolation).
-
-\section{Numerical techniques: Markov Chain Monte Carlo}
 In contrast to the deterministic approach described above, the Bayesian paradigm \cite[see, 
 e.g.][]{Gelman2013a} aims not at a single GSTH which is optimal in a previously defined sense, but 
 seeks to estimate the full posterior probability density function (PDF), given the prior PDF and the 
@@ -436,34 +387,29 @@ half of a decade, which agrees with the resolution obtainable in this type of re
 Demezhko and Shchapov 2001). A number of chains were started in parallel, each starting from a 
 perturbed version of the prior which was set to the average of a GSTH derived from a Tikhonov 
 deterministic inversion of the data set.
-% 
-% Figure 9‑31. Gaussian temporal co­var­ian­ces. In the MCMC samp­lings presented 
-% in this study, correlation lengths of 5·Δt or less were used. 
+
+\section{Setup for Numerical Experiments} 
+\subsection{Generation of Synthetic Borehole Temperature Profiles}
+
+\section{Results}
+\subsection{Numerical Experiment 1: Borehole Temperature Error Level}
+\subsection{Numerical Experiment 2: Borehole Length}
+\subsection{Numerical Experiment 3: Variation of Basal Heat Flow}
+\subsection{Numerical Experiment 4: Variation Rock Properties}
 
 
-\noappendix       %% use this to mark the end of the appendix section
+\conclusions  %% \conclusions[modified heading if necessary]
 
-%% Regarding figures and tables in appendices, the following two options are possible depending on your general handling of figures and tables in the manuscript environment:
-
-%% Option 1: If you sorted all figures and tables into the sections of the text, please also sort the appendix figures and appendix tables into the respective appendix sections.
-%% They will be correctly named automatically.
-
-%% Option 2: If you put all figures after the reference list, please insert appendix tables and figures after the normal tables and figures.
-%% To rename them correctly to A1, A2, etc., please add the following commands in front of them:
-
-\appendixfigures  %% needs to be added in front of appendix figures
-
-\appendixtables   %% needs to be added in front of appendix tables
-
-%% Please add \clearpage between each table and/or figure. Further guidelines on figures and tables can be found below.
+\codedataavailability{TEXT} %% use this section when having data sets and software code available
 
 
+
+
+%\appendix
 
 \authorcontribution{
-VR developed the methodology and wrote the MATLAB code used in this study. The setup and discussion 
-of each site was done by the respective groups: VR/IK for OKU and OLK, VR/JS/JN for 
-FMK and LAX, and VR/JM for ULL. Laboratory measuremnts were done by IK and JS. All authors tool 
-active part in the discussion of the results.   
+VR, DM, and EH developed the methodology and wrote the MATLAB codes used in this study. EH and VR designed carried out the 
+numerical simulations shown here. All authors took active part in the discussion of the results.   
 } 
 
 \competinginterests{
@@ -471,12 +417,11 @@ The authors declare that the research was conducted in the absence of any commer
 relationships that could be construed as a potential conflict of interest.
 } 
 
-\disclaimer{SKB, Posiva?} %% optional section
+%\disclaimer{SKB, Posiva?} %% optional section
 
 \begin{acknowledgements}
-We are grateful to Heikki Hario, Markko Laine, and Aslak Grinsted for makeing their MCMC software 
-available. Posiva Oi (OLkiluoto), SKB (Stockholm), and NGU allowed us to use their data for this 
-study. Outolumpu was drilled as part of ICDP project XXXXX.  
+We are grateful to Heikki Hario, Markko Laine, and Aslak Grinsted for making their MCMC software 
+available. 
 \end{acknowledgements}
 
 
