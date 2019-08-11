@@ -42,7 +42,7 @@
 \usepackage{url,hyperref}
 
 \begin{document}
-\title{Borehole temperatures revealsurface conditions during the Last Glacial Cycle}
+\title{Borehole temperature Inversions: Information Content and Sensitivity}
 
 \Author[1,2]{Volker}{Rath}
 \Author[3]{Esther}{Heckenbach}
@@ -59,7 +59,7 @@
 
 
 
-\runningtitle{Boreholes temperatures}
+\runningtitle{Borehole inversions}
 
 \runningauthor{Rath et al.}
 
@@ -91,25 +91,26 @@ TEXT
 
 
 \introduction  
-
-Recent measurements of borehole temperature profiles (BTPs) can be used to estimate past 
-climate change from the ground surface temperature (GST). Changes of surface temperatures
-diffuse into the sub­surface according to their period. While signals of high-frequency 
-like the annual temperature wave only pene­trate to a depth of 20~m, we can find the maximum
-signature of the last glacial maximum (LGM, $\approx$20~kyr BP) depths between 1000~m and 2000~m, 
-depending on the effective thermal diffusivity of the subsurface. A general de­scription of this 
-method can be found in the monograph of \citet{Bodri2007a}. Since the seminal publi­cation of 
+\label{sec:intro}
+Recent measurements of borehole temperature profiles (BTPs) can be used to estimate past climate 
+change from the ground surface temperature (GST). This is possible, because changes of surface 
+temperatures diffuse into the sub­surface according to their period. While signals of 
+high-frequency, like the annual temperature wave only pene­trate to a depth of 20~m, we can find 
+the 
+maximum signature of the last glacial maximum (LGM, $\approx$20~kyr BP) depths between 1000~m and 
+2000~m, depending on the effective thermal diffusivity of the subsurface. A general de­scription of 
+this method can be found in the monograph of \citet{Bodri2007a}. Since the seminal publi­cation of 
 \citet{Lachenbruch1986a} this method has been employed in many studies on global, regional, or local 
 scale (see the recent review of \citet{Gonzalez-Rouco2009a}, and the numerous references given 
 therein). Most of these studies were based on very shallow boreholes (<500~m), thus only allowing a 
-characterization of at most the last 
-few centuries. Though already one of the first studies already dealt with the signature of the last 
-glacial cycle \citep{Hotchkiss1934a}, the analysis of deeper boreholes has been less common 
-\citep{Demezhko2012a,Kukkonen2011a,Kukkonen2011c,Chouinard2009a,Majorowicz2008a,Rath2007a,
-Mottaghy2006a,Clauser1995a}. This is partly because of the lack of appropriate boreholes, partly 
-becvause the diffusion-like behavior of heat conduction implies that the resolution of GSTH 
+characterization of at most the last few centuries. Though already one of the first studies already 
+dealt with the signature of the last glacial cycle \citep{Hotchkiss1934a}, the analysis of deeper 
+boreholes has been less common 
+\citep{Demezhko2012a, Kukkonen2011a, Kukkonen2011c, Chouinard2009a, Majorowicz2008a, Rath2007a,
+Mottaghy2006a, Clauser1995a}. This is partly because of the lack of appropriate boreholes, partly 
+as the diffusion-like behavior of heat conduction implies that the resolution of GSTH 
 reconstructions decreases fast with age \cite[e.g.][]{Demezhko2001a}. We expect dominant signatures 
-from the temperature increase from the LGM to the Holocene, and younger periods. Earlier 
+from the temperature increase from the LGM to the Holocene at depths $>$1000~m. Earlier 
 contributions will be much less prominent, only determining the integral pre-LGM behavior. 
 
 \citet{Rath2012a} have pointed out that the last glacial cycle influences BTPs even at shallow 
@@ -126,24 +127,19 @@ background heat­ flow \cite[e.g.][]{Westaway2013a,Majorowicz2011a,Slagstad2009a
 The task of deriving meaningful estimates of past climate changes, in particular GSTHs, from recent 
 borehole temperature profiles (BTP) is nontrivial, because the problem is strongly ill-posed in the 
 nomenclature of \citet{Hadamard1923a}. In a mathematical sense, the solutions to this problem may 
-not exist, they may be non-unique, and possibly inherently instable. Detailed accounts of this 
+not exist, they may be non-unique, and possibly inherently unstable. Detailed accounts of this 
 concept, and the techniques necessary to solve this kind of problems can be found in 
-\citep{Hansen1998a,Hansen2010a} or \citep{Aster2013a}. In practice, this implies that the observed 
+\citep{Hansen1998a, Hansen2010a} or \citep{Aster2019a}. In practice, this implies that the observed 
 data (in this case the temperature measurements) need to be combined with knowledge from other 
 sources to render the problem tractable. For the boreholes studied here, this additional information 
 (as far as they are not introduced as explicit parameters in the Bayesian sense) includes a set of 
 measured petrophysical properties, assumptions on the forward model used for the simulations, and on 
-the general character of the solutions. It follows directly, that in these studies, the 
-goodness-of-fit cannot be the single criterion for the quality of the solution. 
+the general character of the solutions. It follows directly, that in these studies, goodness-of-fit 
+cannot be the single criterion for the quality of the solution. 
 
 Most current software for the estimation of GSTHs from borehole temperature profiles is based on a 
 one-dimensional, conduction-only forward model.
 
-\section{Theoretical Backrgound for the NumericaL Experiments}
-\label{sec:setup}
-
-Data and other relevant information site have to be pre-processed in a way appropriate for the given site, and assumptions have 
-to be made accordingly. 
 
 
 \subsection{Forward model}
@@ -158,12 +154,12 @@ the heat conduction equation
 H = 0{\text{ }.}
 \end{equation} 
 
-In this equation, $H$ denotes the volumetric heat production (W m$^{-3}$), while the index $e$ 
-marks effective properties, i.e. properties which describe a rock-fluid-gas multi-phase system. As 
-in the cases studied here porosity is very low, all properties will represent bulk rock properties, 
-and the $e$ index will be omitted in the following. The occurring physical parameters are the 
-density $\rho$ (kg m$^{-3}$), heat capacity $c_p$ (J kg$^{-1}$ K$^{-1}$), and thermal conductivity 
-$\lambda$ (W m$^{-1}$ K$^{-1}$). The volumetric heat capacity is defined as $C = \rho c_p$. 
+In this equation, $H$ denotes the volumetric heat production (W m$^{-3}$), while the index $e$ marks 
+effective properties, i.e. properties which describe a rock-fluid-gas multi-phase system. As in the 
+cases studied here porosity is very low, all properties will represent bulk rock properties, and the 
+$e$ index will be omitted in the following. The occurring physical parameters are the density $\rho$ 
+(kg m$^{-3}$), heat capacity $c_p$ (J kg$^{-1}$ K$^{-1}$), and thermal conductivity $\lambda$ (W 
+m$^{-1}$ K$^{-1}$). The volumetric heat capacity is defined as $C = \rho c_p$. 
 % diffusivity $\mu$ (m$^2$/s) 
 % \begin{equation}\label{eqn:2}
 % \mu = \frac{\lambda}{\rho c_p} = \frac{\lambda}{C}
@@ -173,47 +169,44 @@ In order to solve Equation \ref{eqn:1} we assume a time-dependent Dirichlet boun
 \begin{equation}\label{eqn:3a} 
 T(z_0,t)=T_{GS}(t)
 \end{equation} 
-\noindent at the surface, and a stationary Neumann condition
+\noindent at the surface ($z=0$), and a stationary Neumann condition
 \begin{equation}\label{eqn:3b}
 \frac{\partial T}{\partial z}(z_{max }) =  - \frac{q_b}{\lambda_e}
 \end{equation} 
 \noindent at the base of the model domain. Here, $q_b$ is the basal heat flow density at the base 
  of the model, $z_{max}$. 
  
-This forward problem is solved by numerical finite difference techniques 
-\cite[e.g.,][]{Patankar1980a}, allowing for a flexible discretization in both, time and space. As 
-shown in Figure~\ref{fig:FD}, temperatures in this finite difference (FD) scheme are associated 
-to nodes located at the boundary of the cells. Thermal conductivity $\lambda$, density  $\rho$, 
-heat capacity $c_p$, and heat production $H$ are associated with cells, but the latter is 
-interpolated to the nodes for computational convenience. Time stepping is achieved by a Backward 
-Euler or Crank-Nicholson scheme, which is complemented by a fixed point iteration for resolving the 
-nonlinearities in the coefficients dicussed in Section~\ref{sec:setup}
+This forward problem is solved by numerical finite difference techniques \cite[e.g.,][] 
+{Patankar1980a}, allowing for a flexible discretization in both, time and space. As shown in 
+Figure~\ref{fig:FD}, temperatures in this finite difference (FD) scheme are associated to nodes 
+located at the boundary of the cells. Thermal conductivity $\lambda$, density  $\rho$, heat capacity 
+$c_p$, and heat production $H$ are associated with cells, but the latter is interpolated to the 
+nodes for computational convenience. Time stepping is achieved by a Backward Euler or 
+Crank-Nicholson scheme, which is complemented by a fixed point iteration for resolving the 
+nonlinearities in the coefficients discussed in Section~\ref{sec:setup}
 
 
 \begin{figure}[htp]
  \centering
  \includegraphics[width=\columnwidth]{Figures/FDScheme}
- % FDScheme.png: 347x550 px, 220dpi, 4.01x6.35 cm, bb=0 0 114 180
  \caption[Schematic description of the finite difference discretization.]{Schematic description of 
-the discretization used for 
-the finite difference forward modeling. Measured data have to be assigned to 
-computational nodes (red), while the properties are associated with the cells. 
-Both may imply interpolations or averaging (upscaling) to a given grid for 
-observed temperatures and measured petrophysical properties.}
+the discretization used for the finite difference forward modeling. Measured data have to be 
+assigned to computational nodes (red), while the properties are associated with the cells. Both may 
+imply interpolations or averaging (upscaling) to a given grid for observed temperatures and measured 
+petrophysical properties.}
 \label{fig:FD}
 \end{figure}
 
 \subsection{Inversion techniques}
 \label{sec:tinv}
-For the deterministic approach we seek to minimize an objective function 
-$\Theta$ which is defined by
+For the deterministic approach we seek to minimize an objective function $\Theta$ which is defined 
+by
 
 \begin{equation}\label{eqn:4}
 \Theta  = \mathcal{D}\left(\mathbf{d},\mathbf{m}\right) + \mathcal{R}\left(\mathbf{m} \right).
 \end{equation} 
-\noindent Here, the first term $\mathcal{D}$ measures the data fit, while the
-second, $\mathcal{R}$ , is necessary to stabilize the generally ill-posed 
-inverse problem, \cite[see][]{Aster2013a}. 
+\noindent Here, the first term $\mathcal{D}$ measures the data fit, while the second, $\mathcal{R}$, 
+is necessary to stabilize the generally ill-posed inverse problem, \cite[see][]{Aster2019a}. 
 
 In this study, $\mathcal{D}$ is formulated as
 \begin{equation} 
@@ -221,13 +214,12 @@ In this study, $\mathcal{D}$ is formulated as
  \left(\mathbf{d} - \mathbf{g(m)}\right)^T \mathbf{W}_d^T 
  \mathbf{W}_d^{}\left(\mathbf{d} - \mathbf{g(m)} \right)\quad,
 \end{equation} 
-\noindent where $\mathbf{W}_d$ denotes a weighting matrix commonly used to 
-define the weighted residuals 
+\noindent where $\mathbf{W}_d$ denotes a weighting matrix commonly used to define the weighted 
+residuals 
 \begin{equation*}
 \tilde{ \mathbf{r}} =\mathbf{W}_d^{}\mathbf{r} = 
 \mathbf{W}_d^{} \left(\mathbf{d}-\mathbf{g}(\mathbf{m})\right)\quad, 
 \end{equation*}
-
 \noindent i.e., $\mathbf{W}_d = \mathbf{C}_d^{-1/2}$ is set to the inverse square root of the data 
 covariance matrix $\mathbf{C}_d$, which assumed diagonal is in this study. 
 
@@ -249,10 +241,9 @@ a generalized Tikhonov technique, formulating the corresponding term as
 \end{gathered} 
 \end{equation} 
 
-In this equation, we define $\mathbf{W}_k$ to be a discrete approximation to the
-first derivative of the parameters with respect to logarithmic time, 
-\cite[see][]{Aster2013a}, which can be written in discrete form using a 
-logarithmic time step $h$:
+In this equation, we define $\mathbf{W}_k$ to be a discrete approximation to the first derivative of 
+the parameters with respect to logarithmic time, \cite[see][]{Aster2019a}, which can be written 
+in discrete form using a logarithmic time step $h$:
  	 
 \begin{equation}\label{eqn:6}
 {{\mathbf{W}}_1} = \frac{1}{h}\left[ {\begin{array}{*{20}{c}}
@@ -278,8 +269,8 @@ to the iteration
 \end{gathered}
 \end{equation} 
 
- \noindent with a subsequent update of the parameter vector by 
- $\mathbf{m}_{k + 1} = \mathbf{m}_k + \mu \delta\mathbf{m}_k$.
+ \noindent with a subsequent update of the parameter vector by  $\mathbf{m}_{k + 1} = \mathbf{m}_k + 
+\mu \delta\mathbf{m}_k$.
 
 We define the weighted Jacobian or sensitivity matrix as
 
@@ -320,36 +311,36 @@ problems, where the identification of the point of maximal curvature often leads
 improbable results. 
 
 A useful measure for comparing the goodness-of-fit for different models is the normalized root mean 
-square deviation (RMS) defined by
+square deviation (nRMS) defined by
  
 \begin{equation}\label{eqn:11}
-RMS = \sqrt {\left( {{N_d} - 1} \right)_{}^{ - 1}\sum\nolimits_{j = 1}^N 
+nRMS = \sqrt {\left( {{N_d} - 1} \right)_{}^{ - 1}\sum\nolimits_{j = 1}^N 
 {{{\left( {\frac{{T_j^{obs}--T_j^{cal}}}{{{\sigma _j}}}} \right)}^2}} } \quad ,
 \end{equation} 
 
-where Nd is the number of observations, and the second term under the root is the sum of 
+where $N_d$ is the number of observations, and the second term under the root is the sum of 
 standardized residuals. In the case of $N_d$ being large, and approximately Gaussian and independent 
 data, the value should be near one. However, due to the many assumptions involved, small differences 
-in RMS are not considered as significant, and this parameter should only be used as an indicator. In 
-particular, all runs shown here were run with a uniform error of 0.1~K for the temperature, which is 
-usually a reasonable estimate for this quantity. Note that this error includes not only the 
-measurement error, which is at least one order of magnitude smaller, but also some of errors 
-related to the misspecification of the model (e.g., the use of average properties or interpolation).
-In contrast to the deterministic approach described above, the Bayesian paradigm \cite[see, 
-e.g.][]{Gelman2013a} aims not at a single GSTH which is optimal in a previously defined sense, but 
-seeks to estimate the full posterior probability density function (PDF), given the prior PDF and the 
-observational data. Detailed accounts on this approach can be found in 
-\citep{Mosegaard1995a,Mosegaard2002a,Tarantola2005a}. In the present study we concentrate on the 
-stochastic inversions. Deterministic inversions as described in Section 3.2.1 aim at deriving a 
-single optimum model, which will commonly not catch the characteristics of all models compatible 
-with the data. In contrast, the stochastic methods described in this section introduce constraints 
-in generating a large number of models from a random set of temporally correlated models, as 
-described below. Starting from the prior distribution by p(m), and the conditional probability 
-distribution, p (d|m), also called likelihood, which describes the probability that the data, d, 
-will be observed, given a set of parameters m. Given the above prior, we then seek the conditional 
-(posterior) distribution of the model parameter(s) given the data. We will denote this posterior 
-probability distribution for the model parameters by p(m|d). Bayes’ theorem relates prior and 
-posterior distributions by
+in nRMS are not considered as significant, and this parameter should only be used as an indicator. 
+In particular, all runs shown here were run with a uniform error of 0.05~K for the temperature, 
+which is usually a reasonable estimate for this quantity. Note that this error includes not only the 
+measurement error, which is at least one order of magnitude smaller, but also some of errors related 
+to the mis-specification of the model (e.g., the use of average properties or interpolation). In 
+contrast to the deterministic approach described above, the Bayesian paradigm \cite[see, e.g.][] 
+{Gelman2013a} aims not at a single GSTH which is optimal in a previously defined sense, but seeks to 
+estimate the full posterior probability density function (PDF), given the prior PDF and the 
+observational data. Detailed accounts on this approach can be found in \citep{Mosegaard1995a, 
+Mosegaard2002a, Tarantola2005a}. 
+
+Deterministic inversions aim at deriving a single optimum model, which will commonly not catch the 
+characteristics of all models compatible with the data. In contrast, the stochastic methods 
+described in this section introduce constraints in generating a large number of models from a random 
+set of temporally correlated models, as described below. Starting from the prior distribution by 
+$p(m)$ , and the conditional probability distribution, $p (d|m)$, also called likelihood, which 
+describes the probability that the data, $d$, will be observed, given a set of parameters $m$. 
+Given the above prior, we then seek the conditional (posterior) distribution of the model 
+parameter(s) given the data. We will denote this posterior probability distribution for the model 
+parameters by $p(m|d)$. Bayes’ theorem relates prior and posterior distributions by
  
 \begin{equation}\label{eqn:12}
 p\left( {{\mathbf{m}}\left| {\mathbf{d}} \right.} \right) \propto p\left( 
@@ -382,13 +373,19 @@ C_{i,j}^{{\text{gauss}}} = \sigma _i^2\exp \left[ {\frac{{ - {{\left| {{t_i} -
 {t_j}} \right|}^2}}}{{2{L^2}}}} \right] \quad .
 \end{equation} 
  	f
-Its width is controlled by a temporal correlation length $L$  of approximately 
-half of a decade, which agrees with the resolution obtainable in this type of reconstruction (e.g. 
-Demezhko and Shchapov 2001). A number of chains were started in parallel, each starting from a 
-perturbed version of the prior which was set to the average of a GSTH derived from a Tikhonov 
-deterministic inversion of the data set.
+The width is controlled by a temporal correlation length $L$ of approximately half of a decade, 
+which agrees with the resolution obtainable in this type of reconstruction \cite[e.g.,][] 
+{Demezhko2001a}. A number of chains were started in parallel, each starting from a perturbed version 
+of the prior which was set to the average of a GSTH derived from a Tikhonov deterministic inversion 
+of the data set.
 
-\section{Setup for Numerical Experiments} 
+\section{General setup for the numericaL experiments}
+\label{sec:setup}
+
+Data and other relevant information site have to be pre-processed in a way appropriate for the given 
+site, and assumptions have 
+to be made accordingly. 
+
 \subsection{Generation of Synthetic Borehole Temperature Profiles}
 
 \section{Results}
@@ -400,24 +397,24 @@ deterministic inversion of the data set.
 
 \conclusions  %% \conclusions[modified heading if necessary]
 
-\codedataavailability{TEXT} %% use this section when having data sets and software code available
-
+\codedataavailability{The code for the generation and inversion relevant to this paper can be found 
+at the \texttt{git} repository at \url{https:github.com/volkerrath/BTIsens.git}} 
 
 
 
 %\appendix
 
 \authorcontribution{
-VR, DM, and EH developed the methodology and wrote the MATLAB codes used in this study. EH and VR designed carried out the 
-numerical simulations shown here. All authors took active part in the discussion of the results.   
+VR, DM, and EH developed the methodology and wrote the MATLAB codes used in this study. EH and VR 
+designed and carried out the numerical simulations shown here. All authors took active part in the 
+discussion of the results.   
 } 
 
 \competinginterests{
 The authors declare that the research was conducted in the absence of any commercial or financial 
-relationships that could be construed as a potential conflict of interest.
+relationships that could represent a potential conflict of interest.
 } 
 
-%\disclaimer{SKB, Posiva?} %% optional section
 
 \begin{acknowledgements}
 We are grateful to Heikki Hario, Markko Laine, and Aslak Grinsted for making their MCMC software 
