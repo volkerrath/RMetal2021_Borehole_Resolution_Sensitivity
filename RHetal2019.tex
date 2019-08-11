@@ -90,7 +90,7 @@ TEXT
 \copyrightstatement{TEXT}
 
 
-\introduction  
+\introduction 
 \label{sec:intro}
 Recent measurements of borehole temperature profiles (BTPs) can be used to estimate past climate 
 change from the ground surface temperature (GST). This is possible, because changes of surface 
@@ -100,7 +100,8 @@ the
 maximum signature of the last glacial maximum (LGM, $\approx$20~kyr BP) depths between 1000~m and 
 2000~m, depending on the effective thermal diffusivity of the subsurface. A general de­scription of 
 this method can be found in the monograph of \citet{Bodri2007a}. Since the seminal publi­cation of 
-\citet{Lachenbruch1986a} this method has been employed in many studies on global, regional, or local 
+\citet{Lachenbruch1986a} this method has been employed in many studies on global, regional, or 
+local 
 scale (see the recent review of \citet{Gonzalez-Rouco2009a}, and the numerous references given 
 therein). Most of these studies were based on very shallow boreholes (<500~m), thus only allowing a 
 characterization of at most the last few centuries. Though already one of the first studies already 
@@ -131,9 +132,11 @@ not exist, they may be non-unique, and possibly inherently unstable. Detailed ac
 concept, and the techniques necessary to solve this kind of problems can be found in 
 \citep{Hansen1998a, Hansen2010a} or \citep{Aster2019a}. In practice, this implies that the observed 
 data (in this case the temperature measurements) need to be combined with knowledge from other 
-sources to render the problem tractable. For the boreholes studied here, this additional information 
+sources to render the problem tractable. For the boreholes studied here, this additional 
+information 
 (as far as they are not introduced as explicit parameters in the Bayesian sense) includes a set of 
-measured petrophysical properties, assumptions on the forward model used for the simulations, and on 
+measured petrophysical properties, assumptions on the forward model used for the simulations, and 
+on 
 the general character of the solutions. It follows directly, that in these studies, goodness-of-fit 
 cannot be the single criterion for the quality of the solution. 
 
@@ -154,10 +157,13 @@ the heat conduction equation
 H = 0{\text{ }.}
 \end{equation} 
 
-In this equation, $H$ denotes the volumetric heat production (W m$^{-3}$), while the index $e$ marks 
+In this equation, $H$ denotes the volumetric heat production (W m$^{-3}$), while the index $e$ 
+marks 
 effective properties, i.e. properties which describe a rock-fluid-gas multi-phase system. As in the 
-cases studied here porosity is very low, all properties will represent bulk rock properties, and the 
-$e$ index will be omitted in the following. The occurring physical parameters are the density $\rho$ 
+cases studied here porosity is very low, all properties will represent bulk rock properties, and 
+the 
+$e$ index will be omitted in the following. The occurring physical parameters are the density 
+$\rho$ 
 (kg m$^{-3}$), heat capacity $c_p$ (J kg$^{-1}$ K$^{-1}$), and thermal conductivity $\lambda$ (W 
 m$^{-1}$ K$^{-1}$). The volumetric heat capacity is defined as $C = \rho c_p$. 
 % diffusivity $\mu$ (m$^2$/s) 
@@ -171,7 +177,7 @@ T(z_0,t)=T_{GS}(t)
 \end{equation} 
 \noindent at the surface ($z=0$), and a stationary Neumann condition
 \begin{equation}\label{eqn:3b}
-\frac{\partial T}{\partial z}(z_{max }) =  - \frac{q_b}{\lambda_e}
+\frac{\partial T}{\partial z}(z_{max }) = - \frac{q_b}{\lambda_e}
 \end{equation} 
 \noindent at the base of the model domain. Here, $q_b$ is the basal heat flow density at the base 
  of the model, $z_{max}$. 
@@ -179,11 +185,11 @@ T(z_0,t)=T_{GS}(t)
 This forward problem is solved by numerical finite difference techniques \cite[e.g.,][] 
 {Patankar1980a}, allowing for a flexible discretization in both, time and space. As shown in 
 Figure~\ref{fig:FD}, temperatures in this finite difference (FD) scheme are associated to nodes 
-located at the boundary of the cells. Thermal conductivity $\lambda$, density  $\rho$, heat capacity 
+located at the boundary of the cells. Thermal conductivity $\lambda$, density $\rho$, heat capacity 
 $c_p$, and heat production $H$ are associated with cells, but the latter is interpolated to the 
 nodes for computational convenience. Time stepping is achieved by a Backward Euler or 
 Crank-Nicholson scheme, which is complemented by a fixed point iteration for resolving the 
-nonlinearities in the coefficients discussed in Section~\ref{sec:setup}
+nonlinearities in the coefficients discussed in Section~\ref{sec:design}.
 
 
 \begin{figure}[htp]
@@ -192,7 +198,8 @@ nonlinearities in the coefficients discussed in Section~\ref{sec:setup}
  \caption[Schematic description of the finite difference discretization.]{Schematic description of 
 the discretization used for the finite difference forward modeling. Measured data have to be 
 assigned to computational nodes (red), while the properties are associated with the cells. Both may 
-imply interpolations or averaging (upscaling) to a given grid for observed temperatures and measured 
+imply interpolations or averaging (upscaling) to a given grid for observed temperatures and 
+measured 
 petrophysical properties.}
 \label{fig:FD}
 \end{figure}
@@ -203,9 +210,10 @@ For the deterministic approach we seek to minimize an objective function $\Theta
 by
 
 \begin{equation}\label{eqn:4}
-\Theta  = \mathcal{D}\left(\mathbf{d},\mathbf{m}\right) + \mathcal{R}\left(\mathbf{m} \right).
+\Theta = \mathcal{D}\left(\mathbf{d},\mathbf{m}\right) + \mathcal{R}\left(\mathbf{m} \right).
 \end{equation} 
-\noindent Here, the first term $\mathcal{D}$ measures the data fit, while the second, $\mathcal{R}$, 
+\noindent Here, the first term $\mathcal{D}$ measures the data fit, while the second, 
+$\mathcal{R}$, 
 is necessary to stabilize the generally ill-posed inverse problem, \cite[see][]{Aster2019a}. 
 
 In this study, $\mathcal{D}$ is formulated as
@@ -234,42 +242,44 @@ a generalized Tikhonov technique, formulating the corresponding term as
 \begin{equation}
 \label{eqn:5}
 \begin{gathered}
-  \mathcal{R}\left( {{\mathbf{m}} - {{\mathbf{m}}_a}} \right) =  \hfill \\
-  {\text{        }}\sum\nolimits_k {{\tau _k}} {\left( {{\mathbf{m}} - {{\mathbf{m}}_a}} 
+ \mathcal{R}\left( {{\mathbf{m}} - {{\mathbf{m}}_a}} \right) = \hfill \\
+ {\text{ }}\sum\nolimits_k {{\tau _k}} {\left( {{\mathbf{m}} - {{\mathbf{m}}_a}} 
 \right)^T}{\mathbf{W}}_k^T{\mathbf{W}}_k^{}\left( {{\mathbf{m}} - {{\mathbf{m}}_a}} \right) \quad. 
 \hfill \\ 
 \end{gathered} 
 \end{equation} 
 
-In this equation, we define $\mathbf{W}_k$ to be a discrete approximation to the first derivative of 
+In this equation, we define $\mathbf{W}_k$ to be a discrete approximation to the first derivative 
+of 
 the parameters with respect to logarithmic time, \cite[see][]{Aster2019a}, which can be written 
 in discrete form using a logarithmic time step $h$:
  	 
 \begin{equation}\label{eqn:6}
 {{\mathbf{W}}_1} = \frac{1}{h}\left[ {\begin{array}{*{20}{c}}
-  { - 1}&1&{}& \cdots &{}&0 \\ 
-  {}&{ - 1}&1&{}&{}&{} \\ 
-   \vdots &{}& \ddots &{}&{}& \vdots  \\ 
-  {}&{}&{}&{ - 1}&1&{} \\ 
-  0&{}& \cdots &{}&{ - 1}&1 
+ { - 1}&1&{}& \cdots &{}&0 \\ 
+ {}&{ - 1}&1&{}&{}&{} \\ 
+ \vdots &{}& \ddots &{}&{}& \vdots \\ 
+ {}&{}&{}&{ - 1}&1&{} \\ 
+ 0&{}& \cdots &{}&{ - 1}&1 
 \end{array}} \right]\end{equation} 
 
-Taking the derivative of Equation~\ref{eqn:4}, and imposing the appropriate minimum conditions leads 
+Taking the derivative of Equation~\ref{eqn:4}, and imposing the appropriate minimum conditions 
+leads 
 to the iteration
 	
 \begin{equation}\label{eqn:7}
 \begin{gathered}
-  \left(\mathbf{J}_w^T\mathbf{J}_w^{} + 
-  \sum\limits_{i = 0}^1 \tau_i \mathbf{W}_{m,i}^T\mathbf{W}_{m,i}^{}\right)      
-  \delta\mathbf{m}_k =  \hfill \\
-  \quad \quad \quad \quad \mathbf{J}_w^T\left[\mathbf{d}-
-  \mathbf{g}(\mathbf{m}_k) \right] - \\
-  \quad \quad \quad \quad  \sum\limits_{i = 0}^1 \tau _i \mathbf{W}_{m,i} 
-  \mathbf{W}_{m,i}^{}(\mathbf{m}_k - \mathbf{m}_a) \hfill \\ 
+ \left(\mathbf{J}_w^T\mathbf{J}_w^{} + 
+ \sum\limits_{i = 0}^1 \tau_i \mathbf{W}_{m,i}^T\mathbf{W}_{m,i}^{}\right) 
+ \delta\mathbf{m}_k = \hfill \\
+ \quad \quad \quad \quad \mathbf{J}_w^T\left[\mathbf{d}-
+ \mathbf{g}(\mathbf{m}_k) \right] - \\
+ \quad \quad \quad \quad \sum\limits_{i = 0}^1 \tau _i \mathbf{W}_{m,i} 
+ \mathbf{W}_{m,i}^{}(\mathbf{m}_k - \mathbf{m}_a) \hfill \\ 
 \end{gathered}
 \end{equation} 
 
- \noindent with a subsequent update of the parameter vector by  $\mathbf{m}_{k + 1} = \mathbf{m}_k + 
+ \noindent with a subsequent update of the parameter vector by $\mathbf{m}_{k + 1} = \mathbf{m}_k + 
 \mu \delta\mathbf{m}_k$.
 
 We define the weighted Jacobian or sensitivity matrix as
@@ -282,9 +292,9 @@ We define the weighted Jacobian or sensitivity matrix as
 and the Generalized Inverse as
 
 \begin{equation}\label{eqn:9}
-\mathbf{J}_w^G  = \left(\mathbf{J}_w^T \mathbf{J}_w^{} + 
+\mathbf{J}_w^G = \left(\mathbf{J}_w^T \mathbf{J}_w^{} + 
 \sum\limits_{i = 0}^1 \tau_i \mathbf{W}_{m,i}^T \mathbf{W}_{m,i}^{}\right)^{-1} 
-\mathbf{J}_w^T{\text{  ,}}
+\mathbf{J}_w^T{\text{ ,}}
 \end{equation} 
 
 respectively. Note that the inverse in Equation \ref{eqn:9} is the posterior covariance matrix. 
@@ -295,7 +305,8 @@ Given the two regularization parameters $\tau_0$ and $\tau_1$, this formulation 
 approximation to an inverse spatial exponential covariance a logarithmic scale with given error and 
 correlation length \citep{Rodgers2000a, Tarantola2005a} For the inversions shown below, $\tau_0$ is 
 set to a fixed small value (0.003), while $\tau_1$, is set to an optimal value determined by 
-Generalized Cross Validation (GCV) \citep{Rath2007a,Farquharson2004a,Wahba1990a}. This optimal value 
+Generalized Cross Validation (GCV) \citep{Rath2007a,Farquharson2004a,Wahba1990a}. This optimal 
+value 
 is found by minimizing the GCV function 
 \begin{equation}\label{eqn:10}
 GCV(\tau ) = \frac
@@ -320,82 +331,113 @@ nRMS = \sqrt {\left( {{N_d} - 1} \right)_{}^{ - 1}\sum\nolimits_{j = 1}^N
 
 where $N_d$ is the number of observations, and the second term under the root is the sum of 
 standardized residuals. In the case of $N_d$ being large, and approximately Gaussian and independent 
-data, the value should be near one. However, due to the many assumptions involved, small differences 
-in nRMS are not considered as significant, and this parameter should only be used as an indicator. 
-In particular, all runs shown here were run with a uniform error of 0.05~K for the temperature, 
-which is usually a reasonable estimate for this quantity. Note that this error includes not only the 
-measurement error, which is at least one order of magnitude smaller, but also some of errors related 
-to the mis-specification of the model (e.g., the use of average properties or interpolation). In 
-contrast to the deterministic approach described above, the Bayesian paradigm \cite[see, e.g.][] 
-{Gelman2013a} aims not at a single GSTH which is optimal in a previously defined sense, but seeks to 
-estimate the full posterior probability density function (PDF), given the prior PDF and the 
-observational data. Detailed accounts on this approach can be found in \citep{Mosegaard1995a, 
-Mosegaard2002a, Tarantola2005a}. 
+data, the value should be near one. However, due to the many assumptions involved, small 
+differences in nRMS are not considered as significant, and this parameter should only be used as an 
+indicator. In particular, all runs shown here were run with a uniform error of 0.05~K for the 
+temperature, which is usually a reasonable estimate for this quantity. Note that this error includes 
+not only the measurement error, which is at least one order of magnitude smaller, but also some of 
+errors related to an erroneous specification of the model (e.g., the use of average properties or 
+interpolation). 
 
-Deterministic inversions aim at deriving a single optimum model, which will commonly not catch the 
-characteristics of all models compatible with the data. In contrast, the stochastic methods 
-described in this section introduce constraints in generating a large number of models from a random 
-set of temporally correlated models, as described below. Starting from the prior distribution by 
-$p(m)$ , and the conditional probability distribution, $p (d|m)$, also called likelihood, which 
-describes the probability that the data, $d$, will be observed, given a set of parameters $m$. 
-Given the above prior, we then seek the conditional (posterior) distribution of the model 
-parameter(s) given the data. We will denote this posterior probability distribution for the model 
-parameters by $p(m|d)$. Bayes’ theorem relates prior and posterior distributions by
- 
-\begin{equation}\label{eqn:12}
-p\left( {{\mathbf{m}}\left| {\mathbf{d}} \right.} \right) \propto p\left( 
-{{\mathbf{d}}\left| {\mathbf{m}} \right.} \right)p\left( {\mathbf{m}} \right)
-\end{equation} 
+In contrast to the deterministic approach described above, which aim at deriving a single optimum 
+model (often not catching the characteristics of all models compatible with the data), the Bayesian 
+paradigm \cite[see, e.g.][] {Gelman2013a} aims not at a single GSTH which is optimal in a previously 
+defined sense, but seeks to estimate the full posterior probability density function (PDF), given 
+the prior PDF and the observational data. Detailed accounts on this approach can be found in 
+\citep{Mosegaard1995a, Mosegaard2002a, Tarantola2005a}. This approach was used in 
+\cite[][amongst others]{Kukkonen2011a, Kukkonen2011b, Kukkonen2015a, Rath2019a}. 
+% 
+% Deterministic inversions aim at deriving a single optimum model, which will commonly not catch the 
+% characteristics of all models compatible with the data. In contrast, the stochastic methods 
+% described in this section introduce constraints in generating a large number of models from a 
+% random 
+% set of temporally correlated models, as described below. Starting from the prior distribution by 
+% $p(m)$ , and the conditional probability distribution, $p (d|m)$, also called likelihood, which 
+% describes the probability that the data, $d$, will be observed, given a set of parameters $m$. 
+% Given the above prior, we then seek the conditional (posterior) distribution of the model 
+% parameter(s) given the data. We will denote this posterior probability distribution for the model 
+% parameters by $p(m|d)$. Bayes’ theorem relates prior and posterior distributions by
+%  
+% \begin{equation}\label{eqn:12}
+% p\left( {{\mathbf{m}}\left| {\mathbf{d}} \right.} \right) \propto p\left( 
+% {{\mathbf{d}}\left| {\mathbf{m}} \right.} \right)p\left( {\mathbf{m}} \right)
+% \end{equation} 
+% 
+% where the proportionality constant usually is not explicitly computed. While it is well known that, 
+% under the restrictive assumption of Gaussian probabilities, estimators can be derived, which bear 
+% some similarity to the deterministic methods described above \citep{Tarantola1982a,Tarantola1982b}, 
+% the technique of choice for the Bayesian is of stochastic nature. In this study, a Markov Chain 
+% Monte Carlo (MCMC) technique was employed. We used a variant of the well-known Metropolis-Hastings 
+% algorithm (MH) \citep{Metropolis1953a, Hastings1970a,Haario2006a}. The Delayed Rejection Adaptive 
+% Monte Carlo (DRAM) algorithm improves on MH, i) because it samples the posterior more effectively, 
+% as the rejection of low-likelihood samples is delayed for a predefined number of steps in the MC 
+% chain, before possibly being finally excludes, and ii) because it allows for an adaption of the 
+% prior covariance during the progress of the MC chain. We used the DRAM algorithm as implemented by 
+% \citet{Haario2006a}, with reduced or deactivated adaptivity in order to prevent a premature 
+% concentration of models. There are problems with this choice in the case of an ill-posed inverse 
+% problem as the one investigated here. The meaningfulness of the results depends strongly on the 
+% reasonable choice of both prior probability density, which was chosen to be a multidimensional 
+% Gaussian distribution $\mathcal{N}(mathbf{\mu},\mathbf{S})$. 
+% 
+% In DRAM, a predefined covariance 
+% matrix $\mathbf{C}$ is updated at given intervals during the MC process. In our case, we did not 
+% assume $\mathbf{C}$ to be diagonal, but allowed for temporal correlations in the GSTH parameters, 
+% while for the remaining parameters ($Q_b$ and $H$) it was initialised with the appropriate 
+% variances. For the parameters representing the GSTH, we introduced a Gaussian temporal covariance 
+% matrix defined as
+% 
+% 
+%  	f% Its width is controlled by a temporal correlation length $L$ of approximately half ofdecade, 
+% which agrees with the resolution obtainable in this type of reconstruction \cite[e.g.,][] 
+% {Demezhko2001a}. A number of chains were started in parallel, each starting from a perturbed 
+% version of the prior which was set to the average of a GSTH derived from a Tikhonov deterministic 
+% inversion 
+% of the data set.
 
-where the proportionality constant usually is not explicitly computed. While it is well known that, 
-under the restrictive assumption of Gaussian probabilities, estimators can be derived, which bear 
-some similarity to the deterministic methods described above \citep{Tarantola1982a,Tarantola1982b}, 
-the technique of choice for the Bayesian is of stochastic nature. In this study, a Markov Chain 
-Monte Carlo (MCMC) technique was employed. We used a variant of the well-known Metropolis-Hastings 
-algorithm (MH) \citep{Metropolis1953a, Hastings1970a,Haario2006a}. The Delayed Rejection Adaptive 
-Monte Carlo (DRAM) algorithm improves on MH, i) because it samples the posterior more effectively, 
-as the rejection of low-likelihood samples is delayed for a predefined number of steps in the MC 
-chain, before possibly being finally excludes, and ii) because it allows for an adaption of the 
-prior covariance during the progress of the MC chain. We used the DRAM algorithm as implemented by 
-\citet{Haario2006a}, with reduced or deactivated adaptivity in order to prevent a premature 
-concentration of models. There are problems with this choice in the case of an ill-posed inverse 
-problem as the one investigated here. The meaningfulness of the results depends strongly on the 
-reasonable choice of both prior probability density, which was chosen to be a multidimensional 
-Gaussian distribution $\mathcal{N}(mathbf{\mu},\mathbf{S})$. In DRAM, a predefined covariance matrix 
-$\mathbf{C}$ is updated at given intervals during the MC process. In our case, we did not 
-assume $\mathbf{C}$ to be diagonal, but allowed for temporal correlations in the GSTH parameters, 
-while for the remaining parameters ($Q_b$ and $H$) it was initialised with the appropriate 
-variances. For the parameters representing the GSTH, we introduced a Gaussian temporal covariance 
-matrix defined as
+\section{Design of the numerical experiments}
+\label{sec:design}
 
-\begin{equation}\label{eqn:13}
+The general idea for the numerical experiments presented here is the following:
+
+We have chosen a very simple homogeneous model, with two idealized GST histories. The first 
+(``A'')is s simple step function at 10~ka BP, the second is a slightly more complicated model taken 
+from \cite{Balling1981a}. In order to avoid an ``inverse crime'' \cite[see][]{Kaipio2005a}, these 
+models were simulated with a numerical code developed independently by \citet{Heckenbach2019a}.
+
+In order to obtain a certain degree of realism in the synthetic BTPs, we chose to add noise to the 
+simulations. We did not only add normally distributed noise, but imposed spatial correlations on 
+the error series. For this purpose, we imposed an analytically defined exponential covariance on the 
+noise, employing the well-known technique based on the Cholesky decomposition of the noise 
+covariance matrix $\mathbf{C}_{n}=\mathbf{L}^T\mathbf{L}$, producing the correlated measurements 
+by first generating normally distributed data $\mathbf{u}=\mathcal{N}(0,1)$, and then adding 
+$\sigma_n = \mathbf{L}\mathbf{u}$ to the synthetic profiles. The covariance assumed for the  the 
+simulation was the Gaussian, 
+\begin{equation}\label{eqn:covg}
 C_{i,j}^{{\text{gauss}}} = \sigma _i^2\exp \left[ {\frac{{ - {{\left| {{t_i} - 
-{t_j}} \right|}^2}}}{{2{L^2}}}} \right] \quad .
-\end{equation} 
- 	f
-The width is controlled by a temporal correlation length $L$ of approximately half of a decade, 
-which agrees with the resolution obtainable in this type of reconstruction \cite[e.g.,][] 
-{Demezhko2001a}. A number of chains were started in parallel, each starting from a perturbed version 
-of the prior which was set to the average of a GSTH derived from a Tikhonov deterministic inversion 
-of the data set.
+{t_j}} \right|}^2}}}{{2{L^2}}}} \right] \quad , 
+\end{equation}  
+\noindent but could easily be replaced by an Markovian (exponential), or Mat\'ern matrix. The error 
+amplitude amplitude is given by $\sigma_i$, while its width is controlled by a spatial
+correlation length $L$. Both are varied in the numerical experiment in Section~\ref{sec:errors}. A 
+similar procedure was employed for the perturbations of rock properties in Section~\ref{sec:props}.
 
-\section{General setup for the numericaL experiments}
-\label{sec:setup}
 
-Data and other relevant information site have to be pre-processed in a way appropriate for the given 
-site, and assumptions have 
-to be made accordingly. 
+
+Data and other relevant information site have to be pre-processed in a way appropriate for the 
+given 
+site, and assumptions have to be made accordingly. 
 
 \subsection{Generation of Synthetic Borehole Temperature Profiles}
 
 \section{Results}
-\subsection{Numerical Experiment 1: Borehole Temperature Error Level}
-\subsection{Numerical Experiment 2: Borehole Length}
-\subsection{Numerical Experiment 3: Variation of Basal Heat Flow}
-\subsection{Numerical Experiment 4: Variation Rock Properties}
+\subsection{Numerical Experiment 1: Borehole temperature errors}\label{sec:errors}
+\subsection{Numerical Experiment 2: Borehole length}\label{sec:length}
+\subsection{Numerical Experiment 3: Basal heat flux}\label{sec:qb}
+\subsection{Numerical Experiment 4: Rock Properties}\label{sec:props}
 
 
-\conclusions  %% \conclusions[modified heading if necessary]
+\conclusions %% \conclusions[modified heading if necessary]
+Don't believe in Borehole Climatology!
 
 \codedataavailability{The code for the generation and inversion relevant to this paper can be found 
 at the \texttt{git} repository at \url{https:github.com/volkerrath/BTIsens.git}} 
@@ -407,7 +449,7 @@ at the \texttt{git} repository at \url{https:github.com/volkerrath/BTIsens.git}}
 \authorcontribution{
 VR, DM, and EH developed the methodology and wrote the MATLAB codes used in this study. EH and VR 
 designed and carried out the numerical simulations shown here. All authors took active part in the 
-discussion of the results.   
+discussion of the results. 
 } 
 
 \competinginterests{
@@ -444,15 +486,15 @@ available.
 
 %% LITERATURE CITATIONS
 %%
-%% command                        & example result
-%% \citet{jones90}|               & Jones et al. (1990)
-%% \citep{jones90}|               & (Jones et al., 1990)
-%% \citep{jones90,jones93}|       & (Jones et al., 1990, 1993)
-%% \citep[p.~32]{jones90}|        & (Jones et al., 1990, p.~32)
-%% \citep[e.g.,][]{jones90}|      & (e.g., Jones et al., 1990)
+%% command & example result
+%% \citet{jones90}| & Jones et al. (1990)
+%% \citep{jones90}| & (Jones et al., 1990)
+%% \citep{jones90,jones93}| & (Jones et al., 1990, 1993)
+%% \citep[p.~32]{jones90}| & (Jones et al., 1990, p.~32)
+%% \citep[e.g.,][]{jones90}| & (e.g., Jones et al., 1990)
 %% \citep[e.g.,][p.~32]{jones90}| & (e.g., Jones et al., 1990, p.~32)
-%% \citeauthor{jones90}|          & Jones et al.
-%% \citeyear{jones90}|            & 1990
+%% \citeauthor{jones90}| & Jones et al.
+%% \citeyear{jones90}| & 1990
 
 
 
