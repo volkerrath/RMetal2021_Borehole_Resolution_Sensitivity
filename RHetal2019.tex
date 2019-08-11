@@ -42,7 +42,7 @@
 \usepackage{url,hyperref}
 
 \begin{document}
-\title{Borehole temperature Inversions: Information Content and Sensitivity}
+\title{Borehole Temperature Inversions: Information Content and Sensitivity}
 
 \Author[1,2]{Volker}{Rath}
 \Author[3]{Esther}{Heckenbach}
@@ -107,8 +107,9 @@ therein). Most of these studies were based on very shallow boreholes (<500~m), t
 characterization of at most the last few centuries. Though already one of the first studies already 
 dealt with the signature of the last glacial cycle \citep{Hotchkiss1934a}, the analysis of deeper 
 boreholes has been less common 
-\citep{Demezhko2012a, Kukkonen2011a, Kukkonen2011c, Chouinard2009a, Majorowicz2008a, Rath2007a,
-Mottaghy2006a, Clauser1995a}. This is partly because of the lack of appropriate boreholes, partly 
+\citep{Demezhko2014a, Kukkonen2011a, Kukkonen2011b, Chouinard2009a, Majorowicz2008a, Rath2007a,
+Mottaghy2006a, Demezhko2001a, Clauser1995c}. This is partly because of the lack of appropriate 
+boreholes, partly 
 as the diffusion-like behavior of heat conduction implies that the resolution of GSTH 
 reconstructions decreases fast with age \cite[e.g.][]{Demezhko2001a}. We expect dominant signatures 
 from the temperature increase from the LGM to the Holocene at depths $>$1000~m. Earlier 
@@ -130,7 +131,7 @@ borehole temperature profiles (BTP) is nontrivial, because the problem is strong
 nomenclature of \citet{Hadamard1923a}. In a mathematical sense, the solutions to this problem may 
 not exist, they may be non-unique, and possibly inherently unstable. Detailed accounts of this 
 concept, and the techniques necessary to solve this kind of problems can be found in 
-\citep{Hansen1998a, Hansen2010a} or \citep{Aster2019a}. In practice, this implies that the observed 
+\citep{Hansen1998g, Hansen2010a} or \citep{Aster2019a}. In practice, this implies that the observed 
 data (in this case the temperature measurements) need to be combined with knowledge from other 
 sources to render the problem tractable. For the boreholes studied here, this additional 
 information 
@@ -235,7 +236,7 @@ In the problem treated here, the parameter vector $\mathbf{m}$ is composed of a 
 function of time, using a logarithmic spacing. The data vector $\mathbf{d} = H(\mathbf{d}_{obs})$ 
 contains the result of an observation operator $H$ applied to the discrete values of temperature 
 measured in in the borehole. In this case, the application of this operator refers to the 
-“upscaling” procedures mentioned in Section~\ref{sec:setup}. This regularization in 
+“upscaling” procedures mentioned in Section~\ref{sec:design}. This regularization in 
 Equation~\ref{eqn:4} can be achieved in many different ways. Most of the results presented here use 
 a generalized Tikhonov technique, formulating the corresponding term as
 
@@ -449,7 +450,7 @@ at the \texttt{git} repository at \url{https:github.com/volkerrath/BTIsens.git}}
 \authorcontribution{
 VR, DM, and EH developed the methodology and wrote the MATLAB codes used in this study. EH and VR 
 designed and carried out the numerical simulations shown here. All authors took active part in the 
-discussion of the results. 
+discussion of the results and writing the manuscript. 
 } 
 
 \competinginterests{
