@@ -398,14 +398,19 @@ the prior PDF and the observational data. Detailed accounts on this approach can
 \section{Design of the numerical experiments}
 \label{sec:design}
 
-The general idea for the numerical experiments presented here is the following:
+The general idea for the numerical experiments presented here is to generate ``realistic'' 
+synthetic borehole te,perature profiles, where the true model, the  properites, and the 
+associated errors are knwell known. the following:
 
+\subsection{Generation of Synthetic Borehole Temperature Profiles}
 We have chosen a very simple homogeneous model, with two idealized GST histories. The first 
 (``A'')is s simple step function at 10~ka BP, the second (``B'') is a slightly more complicated 
 model taken from \cite{Balling1981a}. In order to avoid an ``inverse crime'' 
 \cite[see][]{Kaipio2005a}, these models were simulated with a numerical code developed independently 
 by \citet{Heckenbach2019a}.
 
+
+\subsection{Correlated additive errors}
 In order to obtain a certain degree of realism in the synthetic BTPs, we chose to add noise to the 
 simulations. We did not only add normally distributed noise, but imposed spatial correlations on 
 the error series. For this purpose, we imposed an analytically defined exponential covariance on the 
