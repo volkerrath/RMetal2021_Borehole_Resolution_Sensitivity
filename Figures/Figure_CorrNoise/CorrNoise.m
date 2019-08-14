@@ -46,7 +46,7 @@ figure;
 for ii=1:nL
     plot(E,z,'LineWidth',linewd);hold on
     legstr{ii}= ...
-         strcat(['L= ',num2str(Li(ii))]);
+         strcat(['L \approx ',num2str(20*Li(ii)), ' m']);
 end
 grid on;
 set(gca,'ydir','rev','FontSize',fontsz,'FontWeight',fontwg);

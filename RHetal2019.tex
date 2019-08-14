@@ -193,7 +193,7 @@ Crank-Nicholson scheme, which is complemented by a fixed point iteration for res
 nonlinearities in the coefficients discussed in Section~\ref{sec:design}.
 
 
-\begin{figure}[htp]
+\begin{figure}%[htp]
  \centering
  \includegraphics[width=\columnwidth]{Figures/FDScheme}
  \caption[Schematic description of the finite difference discretization.]{Schematic description of 
@@ -427,6 +427,15 @@ C_{i,j}^{{\text{gauss}}} = \sigma _i^2\exp \left[ {\frac{{ - {{\left| {{t_i} -
 amplitude amplitude is given by $\sigma_i$, while its width is controlled by a spatial
 correlation length $L$. Both are varied in the numerical experiment in Section~\ref{sec:errors}. A 
 similar procedure was employed for the perturbations of rock properties in Section~\ref{sec:props}.
+
+
+\begin{figure}%[htp]
+ \centering
+ \includegraphics[width=0.95\columnwidth]{Figures/Figure_NoiseCorr}
+ \caption{Example for correlated noise added to the synthetic borehole temperature profiles. 
+Temperature logs are shown for different vertical correlation lengths $L$.}
+\label{fig:Noise}
+\end{figure}
 
 
 
