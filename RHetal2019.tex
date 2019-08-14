@@ -94,26 +94,16 @@ TEXT
 \label{sec:intro}
 Recent measurements of borehole temperature profiles (BTPs) can be used to estimate past climate 
 change from the ground surface temperature (GST). This is possible, because changes of surface 
-temperatures diffuse into the sub­surface according to their period. While signals of 
-high-frequency, like the annual temperature wave only pene­trate to a depth of 20~m, we can find 
-the 
-maximum signature of the last glacial maximum (LGM, $\approx$20~kyr BP) depths between 1000~m and 
-2000~m, depending on the effective thermal diffusivity of the subsurface. A general de­scription of 
-this method can be found in the monograph of \citet{Bodri2007a}. Since the seminal publi­cation of 
-\citet{Lachenbruch1986a} this method has been employed in many studies on global, regional, or 
-local 
-scale (see the recent review of \citet{Gonzalez-Rouco2009a}, and the numerous references given 
+temperatures diffuse into the sub­surface according to their period. While signals of high-frequency, like the annual temperature wave only pene­trate to a depth of 20~m, we can find 
+the maximum signature of the last glacial maximum (LGM, $\approx$20~kyr BP) depths between 1000~m and 2000~m, depending on the effective thermal diffusivity of the subsurface. A general description of this method can be found in the monograph of \citet{Bodri2007a}. Since the seminal publi­cation of \citet{Lachenbruch1986a} this method has been employed in many studies on global, regional, or local scale (see the recent review of \citet{Gonzalez-Rouco2009a}, and the numerous references given 
 therein). Most of these studies were based on very shallow boreholes (<500~m), thus only allowing a 
 characterization of at most the last few centuries. Though already one of the first studies already 
 dealt with the signature of the last glacial cycle \citep{Hotchkiss1934a}, the analysis of deeper 
-boreholes has been less common 
-\citep{Demezhko2014a, Kukkonen2011a, Kukkonen2011b, Chouinard2009a, Majorowicz2008a, Rath2007a,
+boreholes has been less common \citep{Demezhko2014a, Kukkonen2011a, Kukkonen2011b, Chouinard2009a, Majorowicz2008a, Rath2007a,
 Mottaghy2006a, Demezhko2001a, Clauser1995a}. This is partly because of the lack of appropriate 
-boreholes, partly 
-as the diffusion-like behavior of heat conduction implies that the resolution of GSTH 
+boreholes, partly as the diffusion-like behavior of heat conduction implies that the resolution of GSTH 
 reconstructions decreases fast with age \cite[e.g.][]{Demezhko2001a}. We expect dominant signatures 
-from the temperature increase from the LGM to the Holocene at depths $>$1000~m. Earlier 
-contributions will be much less prominent, only determining the integral pre-LGM behavior. 
+from the temperature increase from the LGM to the Holocene at depths $>$1000~m. Earlier contributions will be much less prominent, only determining the integral pre-LGM behavior. 
 
 \citet{Rath2012a} have pointed out that the last glacial cycle influences BTPs even at shallow 
 depths, where its effect amounts to an additional heat flow density, which does not invalidate most 
@@ -414,7 +404,8 @@ by \citet{Heckenbach2019a}.
 In order to obtain a certain degree of realism in the synthetic BTPs, we chose to add noise to the 
 simulations. We did not only add normally distributed noise, but imposed spatial correlations on 
 the error series. For this purpose, we imposed an analytically defined exponential covariance on the 
-noise, employing the well-known technique based on the Cholesky decomposition of the noise 
+noise.  We employ the well-known technique \cite[see, ][]{Martinez2016a} based on the Cholesky 
+decomposition of the noise 
 covariance matrix $\mathbf{C}_{n}=\mathbf{L}^T\mathbf{L}$, producing the correlated measurements 
 by first generating normally distributed data $\mathbf{u}=\mathcal{N}(0,1)$, and then adding 
 $\sigma_n = \mathbf{L}\mathbf{u}$ to the synthetic profiles. The covariance assumed for the  the 
@@ -433,7 +424,8 @@ similar procedure was employed for the perturbations of rock properties in Secti
  \centering
  \includegraphics[width=0.95\columnwidth]{Figures/Figure_NoiseCorr}
  \caption{Example for correlated noise added to the synthetic borehole temperature profiles. 
-Temperature logs are shown for different vertical correlation lengths $L$.}
+Temperature logs are shown for different vertical correlation lengths $L$. A Gaussian covariance 
+(see Equation~\ref{eqn:covg}) was chosen.}
 \label{fig:Noise}
 \end{figure}
 

@@ -8,7 +8,7 @@ plotfmt='png';
 plotfmt='pdf';
 fontwg='normal';
 fontsz=16;
-linewd=2;
+linewd=1;
 %cols={'-b','-r','-g','-m','-k' '--b','--r','--g','--m','--k' ':b',':r',':g',':m',':k'};
 zlimits=[0 2500];
 
