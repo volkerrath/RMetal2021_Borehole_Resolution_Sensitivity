@@ -94,16 +94,23 @@ TEXT
 \label{sec:intro}
 Recent measurements of borehole temperature profiles (BTPs) can be used to estimate past climate 
 change from the ground surface temperature (GST). This is possible, because changes of surface 
-temperatures diffuse into the sub­surface according to their period. While signals of high-frequency, like the annual temperature wave only pene­trate to a depth of 20~m, we can find 
-the maximum signature of the last glacial maximum (LGM, $\approx$20~kyr BP) depths between 1000~m and 2000~m, depending on the effective thermal diffusivity of the subsurface. A general description of this method can be found in the monograph of \citet{Bodri2007a}. Since the seminal publi­cation of \citet{Lachenbruch1986a} this method has been employed in many studies on global, regional, or local scale (see the recent review of \citet{Gonzalez-Rouco2009a}, and the numerous references given 
-therein). Most of these studies were based on very shallow boreholes (<500~m), thus only allowing a 
-characterization of at most the last few centuries. Though already one of the first studies already 
-dealt with the signature of the last glacial cycle \citep{Hotchkiss1934a}, the analysis of deeper 
-boreholes has been less common \citep{Demezhko2014a, Kukkonen2011a, Kukkonen2011b, Chouinard2009a, Majorowicz2008a, Rath2007a,
-Mottaghy2006a, Demezhko2001a, Clauser1995a}. This is partly because of the lack of appropriate 
-boreholes, partly as the diffusion-like behavior of heat conduction implies that the resolution of GSTH 
-reconstructions decreases fast with age \cite[e.g.][]{Demezhko2001a}. We expect dominant signatures 
-from the temperature increase from the LGM to the Holocene at depths $>$1000~m. Earlier contributions will be much less prominent, only determining the integral pre-LGM behavior. 
+temperatures diffuse into the sub­surface according to their period. While signals of high 
+frequency, like the annual temperature wave only pene­trate to a depth of 20~m, we can find 
+the maximum signature of the last glacial maximum (LGM, $\approx$20~kyr BP) depths between 1000~m 
+and 2000~m, depending on the effective thermal diffusivity of the subsurface. A general description
+of this method can be found in the monograph of \citet{Bodri2007a}. Since the seminal publi­cation 
+of \citet{Lachenbruch1986a} this method has been employed in many studies on global, regional, or 
+local scale (see the recent review of \citet{Gonzalez-Rouco2009a}, and the numerous references 
+given therein). Most of these studies were based on very shallow boreholes (<500~m), thus only 
+allowing a characterization of at most the last few centuries. Though already one of the first 
+studies already dealt with the signature of the last glacial cycle \citep{Hotchkiss1934a}, the 
+analysis of deeper boreholes has been less common \citep{Demezhko2014a, Kukkonen2011a, 
+Kukkonen2011b, Chouinard2009a,  Majorowicz2008a, Rath2007a, Mottaghy2006a, Demezhko2001a, 
+Clauser1995a}. This is partly because of the lack of appropriate boreholes, partly as the 
+diffusion-like behavior of heat conduction implies that the resolution of GSTH reconstructions 
+decreases fast with age \cite[e.g.][]{Demezhko2001a}. We expect dominant signatures from the 
+temperature increase from the LGM to the Holocene at depths $>$1000~m. Earlier contributions will be 
+much less prominent, only determining the integral pre-LGM behavior. 
 
 \citet{Rath2012a} have pointed out that the last glacial cycle influences BTPs even at shallow 
 depths, where its effect amounts to an additional heat flow density, which does not invalidate most 
@@ -121,19 +128,20 @@ borehole temperature profiles (BTP) is nontrivial, because the problem is strong
 nomenclature of \citet{Hadamard1923a}. In a mathematical sense, the solutions to this problem may 
 not exist, they may be non-unique, and possibly inherently unstable. Detailed accounts of this 
 concept, and the techniques necessary to solve this kind of problems can be found in 
-\citep{Hansen1998a, Hansen2010a} or \citep{Aster2019a}. In practice, this implies that the observed 
-data (in this case the temperature measurements) need to be combined with knowledge from other 
-sources to render the problem tractable. For the boreholes studied here, this additional 
-information 
-(as far as they are not introduced as explicit parameters in the Bayesian sense) includes a set of 
-measured petrophysical properties, assumptions on the forward model used for the simulations, and 
-on 
-the general character of the solutions. It follows directly, that in these studies, goodness-of-fit 
-cannot be the single criterion for the quality of the solution. 
+\citep{Hansen1998a, Hansen2010a}, or \citep{Aster2019a}. In practice, this implies that the 
+observed data (in this case the temperature measurements) need to be combined with knowledge from 
+other sources to render the problem tractable. For the boreholes studied here, this additional 
+information (as far as they are not introduced as explicit parameters in the Bayesian sense) 
+includes a set of measured petrophysical properties, assumptions on the forward model used for the 
+simulations, and on the general character of the solutions. It follows directly, that in these 
+studies, goodness-of-fit cannot be the single criterion for the quality of the solution. 
 
 Most current software for the estimation of GSTHs from borehole temperature profiles is based on a 
-one-dimensional, conduction-only forward model.
-
+one-dimensional, conduction-only forward model. We are aware, that in many practical situations, 
+where the heat flux vector deviates from the vertical because of heterogeneity or anisotropy, a 
+multidimensional interpretation is necessary. In this study however, we will assume that we are 
+dealing with a layered earth structure. In this section we will describe the forward model, and the 
+deterministic inversion techniques employed for our results.
 
 
 \subsection{Forward model}
@@ -149,18 +157,15 @@ H = 0{\text{ }.}
 \end{equation} 
 
 In this equation, $H$ denotes the volumetric heat production (W m$^{-3}$), while the index $e$ 
-marks 
-effective properties, i.e. properties which describe a rock-fluid-gas multi-phase system. As in the 
-cases studied here porosity is very low, all properties will represent bulk rock properties, and 
-the 
-$e$ index will be omitted in the following. The occurring physical parameters are the density 
-$\rho$ 
-(kg m$^{-3}$), heat capacity $c_p$ (J kg$^{-1}$ K$^{-1}$), and thermal conductivity $\lambda$ (W 
-m$^{-1}$ K$^{-1}$). The volumetric heat capacity is defined as $C = \rho c_p$. 
-% diffusivity $\mu$ (m$^2$/s) 
-% \begin{equation}\label{eqn:2}
-% \mu = \frac{\lambda}{\rho c_p} = \frac{\lambda}{C}
-% \end{equation} 
+marks effective properties, i.e. properties which describe a rock-fluid-gas multi-phase system. As 
+in the cases studied here porosity is very low, all properties will represent bulk rock properties, 
+and the $e$ index will be omitted in the following. The occurring physical parameters are the 
+density $\rho$ (kg m$^{-3}$), heat capacity $c_p$ (J kg$^{-1}$ K$^{-1}$), and thermal conductivity 
+$\lambda$ (W m$^{-1}$ K$^{-1}$). The volumetric heat capacity is defined as $C = \rho c_p$. In 
+very simple, homogeneous cases, the diffusivity $\mu$ (m$^2$/s) can be defined as  
+\begin{equation}\label{eqn:2}
+\mu = \frac{\lambda}{\rho c_p} = \frac{\lambda}{C} \quad .
+\end{equation} 
 
 In order to solve Equation \ref{eqn:1} we assume a time-dependent Dirichlet boundary condition 
 \begin{equation}\label{eqn:3a} 
@@ -190,8 +195,7 @@ nonlinearities in the coefficients discussed in Section~\ref{sec:design}.
 the discretization used for the finite difference forward modeling. Measured data have to be 
 assigned to computational nodes (red), while the properties are associated with the cells. Both may 
 imply interpolations or averaging (upscaling) to a given grid for observed temperatures and 
-measured 
-petrophysical properties.}
+measured petrophysical properties.}
 \label{fig:FD}
 \end{figure}
 
@@ -199,13 +203,12 @@ petrophysical properties.}
 \label{sec:tinv}
 For the deterministic approach we seek to minimize an objective function $\Theta$ which is defined 
 by
-
 \begin{equation}\label{eqn:4}
 \Theta = \mathcal{D}\left(\mathbf{d},\mathbf{m}\right) + \mathcal{R}\left(\mathbf{m} \right).
 \end{equation} 
 \noindent Here, the first term $\mathcal{D}$ measures the data fit, while the second, 
-$\mathcal{R}$, 
-is necessary to stabilize the generally ill-posed inverse problem, \cite[see][]{Aster2019a}. 
+$\mathcal{R}$, is necessary to stabilize the generally ill-posed inverse problem, \cite[see] [] 
+{Aster2019a}. 
 
 In this study, $\mathcal{D}$ is formulated as
 \begin{equation} 
@@ -241,8 +244,7 @@ a generalized Tikhonov technique, formulating the corresponding term as
 \end{equation} 
 
 In this equation, we define $\mathbf{W}_k$ to be a discrete approximation to the first derivative 
-of 
-the parameters with respect to logarithmic time, \cite[see][]{Aster2019a}, which can be written 
+of the parameters with respect to logarithmic time, \cite[see][]{Aster2019a}, which can be written 
 in discrete form using a logarithmic time step $h$:
  	 
 \begin{equation}\label{eqn:6}
@@ -255,8 +257,7 @@ in discrete form using a logarithmic time step $h$:
 \end{array}} \right]\end{equation} 
 
 Taking the derivative of Equation~\ref{eqn:4}, and imposing the appropriate minimum conditions 
-leads 
-to the iteration
+leads to the iteration
 	
 \begin{equation}\label{eqn:7}
 \begin{gathered}
@@ -288,7 +289,7 @@ and the Generalized Inverse as
 \mathbf{J}_w^T{\text{ ,}}
 \end{equation} 
 
-respectively. Note that the inverse in Equation \ref{eqn:9} is the posterior covariance matrix. 
+respectively. Note that the inverse in Equation~\ref{eqn:9} is the posterior covariance matrix. 
 These quantities are appropriate tools to further analyze the sensitivity of given data to the 
 inverse parameters. 
 
@@ -297,8 +298,7 @@ approximation to an inverse spatial exponential covariance a logarithmic scale w
 correlation length \citep{Rodgers2000a, Tarantola2005a} For the inversions shown below, $\tau_0$ is 
 set to a fixed small value (0.003), while $\tau_1$, is set to an optimal value determined by 
 Generalized Cross Validation (GCV) \citep{Rath2007a,Farquharson2004a,Wahba1990a}. This optimal 
-value 
-is found by minimizing the GCV function 
+value is found by minimizing the GCV function 
 \begin{equation}\label{eqn:10}
 GCV(\tau ) = \frac
 {N\left\| \mathbf{d} - \mathbf{g}(\mathbf{m}_\tau ^k) \right\|_2^2}
@@ -393,11 +393,10 @@ synthetic borehole te,perature profiles, where the true model, the  properites, 
 associated errors are knwell known. the following:
 
 \subsection{Generation of Synthetic Borehole Temperature Profiles}
-We have chosen a very simple homogeneous model, with two idealized GST histories. The first 
-(``A'')is s simple step function at 10~ka BP, the second (``B'') is a slightly more complicated 
-model taken from \cite{Balling1981a}. In order to avoid an ``inverse crime'' 
-\cite[see][]{Kaipio2005a}, these models were simulated with a numerical code developed independently 
-by \citet{Heckenbach2019a}.
+To keep things wimple, we have chosen a very simple homogeneous subsurface model, with an idealized 
+GSTH taken from \cite{Balling1981a}. In order to avoid an ``inverse crime'' \cite[see] [] 
+{Kaipio2005a}, these models were simulated with a numerical code developed independently 
+by \citet{Heckenbach2019a}. 
 
 
 \subsection{Correlated additive errors}
@@ -424,20 +423,21 @@ similar procedure was employed for the perturbations of rock properties in Secti
  \centering
  \includegraphics[width=0.95\columnwidth]{Figures/Figure_NoiseCorr}
  \caption{Example for correlated noise added to the synthetic borehole temperature profiles. 
-Temperature logs are shown for different vertical correlation lengths $L$. A Gaussian covariance 
-(see Equation~\ref{eqn:covg}) was chosen.}
+Temperature logs are shown for different vertical correlation lengths $L$, with error amplitude 
+$\sigma$ of 0.03~K. A Gaussian covariance (see Equation~\ref{eqn:covg}) was chosen.}
 \label{fig:Noise}
 \end{figure}
 
+For each of the numerical experiments presented in Section~\ref{sec:results}, we ran small 
+ensembles (24-32 samples) for different error realizations. While this is surely not enough to 
+produce statistically reliable results, it gives an indication of the importance of the errors in 
+each case.   
 
 
-Data and other relevant information site have to be pre-processed in a way appropriate for the 
-given 
-site, and assumptions have to be made accordingly. 
 
 \subsection{Generation of Synthetic Borehole Temperature Profiles}
 
-\section{Results}
+\section{Results}\label{sec:results}
 \subsection{Numerical Experiment 1: Borehole temperature errors}\label{sec:errors}
 \subsection{Numerical Experiment 2: Borehole length}\label{sec:length}
 \subsection{Numerical Experiment 3: Basal heat flux}\label{sec:qb}
