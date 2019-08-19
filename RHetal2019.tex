@@ -161,11 +161,7 @@ marks effective properties, i.e. properties which describe a rock-fluid-gas mult
 in the cases studied here porosity is very low, all properties will represent bulk rock properties, 
 and the $e$ index will be omitted in the following. The occurring physical parameters are the 
 density $\rho$ (kg m$^{-3}$), heat capacity $c_p$ (J kg$^{-1}$ K$^{-1}$), and thermal conductivity 
-$\lambda$ (W m$^{-1}$ K$^{-1}$). The volumetric heat capacity is defined as $C = \rho c_p$. In 
-very simple, homogeneous cases, the diffusivity $\mu$ (m$^2$/s) can be defined as  
-\begin{equation}\label{eqn:2}
-\mu = \frac{\lambda}{\rho c_p} = \frac{\lambda}{C} \quad .
-\end{equation} 
+$\lambda$ (W m$^{-1}$ K$^{-1}$). The volumetric heat capacity is defined as $C = \rho c_p$. 
 
 In order to solve Equation \ref{eqn:1} we assume a time-dependent Dirichlet boundary condition 
 \begin{equation}\label{eqn:3a} 
@@ -322,101 +318,69 @@ nRMS = \sqrt {\left( {{N_d} - 1} \right)_{}^{ - 1}\sum\nolimits_{j = 1}^N
 
 where $N_d$ is the number of observations, and the second term under the root is the sum of 
 standardized residuals. In the case of $N_d$ being large, and approximately Gaussian and independent 
-data, the value should be near one. However, due to the many assumptions involved, small 
-differences in nRMS are not considered as significant, and this parameter should only be used as an 
-indicator. In particular, all runs shown here were run with a uniform error of 0.05~K for the 
-temperature, which is usually a reasonable estimate for this quantity. Note that this error includes 
-not only the measurement error, which is at least one order of magnitude smaller, but also some of 
-errors related to an erroneous specification of the model (e.g., the use of average properties or 
-interpolation). 
+data, the value should be near one. However, due to the many assumptions involved, small differences 
+in nRMS are not considered as significant, and this parameter should only be used as an indicator. 
+In particular, all runs shown here were run with a uniform error of 0.03~K for the temperature, 
+which is usually a reasonable estimate for this quantity. Note that this error includes not only the 
+measurement error, which is at least one order of magnitude smaller, but also some of errors related 
+to an erroneous specification of the model (e.g., the use of average properties or interpolation). 
 
 In contrast to the deterministic approach described above, which aim at deriving a single optimum 
 model (often not catching the characteristics of all models compatible with the data), the Bayesian 
-paradigm \cite[see, e.g.][] {Gelman2013a} aims not at a single GSTH which is optimal in a previously 
-defined sense, but seeks to estimate the full posterior probability density function (PDF), given 
-the prior PDF and the observational data. Detailed accounts on this approach can be found in 
-\citep{Mosegaard1995a, Mosegaard2002a, Tarantola2005a}. This approach was used in 
-\cite[][amongst others]{Kukkonen2011a, Kukkonen2011b, Kukkonen2015a, Rath2019a}. 
-% 
-% Deterministic inversions aim at deriving a single optimum model, which will commonly not catch the 
-% characteristics of all models compatible with the data. In contrast, the stochastic methods 
-% described in this section introduce constraints in generating a large number of models from a 
-% random 
-% set of temporally correlated models, as described below. Starting from the prior distribution by 
-% $p(m)$ , and the conditional probability distribution, $p (d|m)$, also called likelihood, which 
-% describes the probability that the data, $d$, will be observed, given a set of parameters $m$. 
-% Given the above prior, we then seek the conditional (posterior) distribution of the model 
-% parameter(s) given the data. We will denote this posterior probability distribution for the model 
-% parameters by $p(m|d)$. Bayes’ theorem relates prior and posterior distributions by
-%  
-% \begin{equation}\label{eqn:12}
-% p\left( {{\mathbf{m}}\left| {\mathbf{d}} \right.} \right) \propto p\left( 
-% {{\mathbf{d}}\left| {\mathbf{m}} \right.} \right)p\left( {\mathbf{m}} \right)
-% \end{equation} 
-% 
-% where the proportionality constant usually is not explicitly computed. While it is well known that, 
-% under the restrictive assumption of Gaussian probabilities, estimators can be derived, which bear 
-% some similarity to the deterministic methods described above \citep{Tarantola1982a,Tarantola1982b}, 
-% the technique of choice for the Bayesian is of stochastic nature. In this study, a Markov Chain 
-% Monte Carlo (MCMC) technique was employed. We used a variant of the well-known Metropolis-Hastings 
-% algorithm (MH) \citep{Metropolis1953a, Hastings1970a,Haario2006a}. The Delayed Rejection Adaptive 
-% Monte Carlo (DRAM) algorithm improves on MH, i) because it samples the posterior more effectively, 
-% as the rejection of low-likelihood samples is delayed for a predefined number of steps in the MC 
-% chain, before possibly being finally excludes, and ii) because it allows for an adaption of the 
-% prior covariance during the progress of the MC chain. We used the DRAM algorithm as implemented by 
-% \citet{Haario2006a}, with reduced or deactivated adaptivity in order to prevent a premature 
-% concentration of models. There are problems with this choice in the case of an ill-posed inverse 
-% problem as the one investigated here. The meaningfulness of the results depends strongly on the 
-% reasonable choice of both prior probability density, which was chosen to be a multidimensional 
-% Gaussian distribution $\mathcal{N}(mathbf{\mu},\mathbf{S})$. 
-% 
-% In DRAM, a predefined covariance 
-% matrix $\mathbf{C}$ is updated at given intervals during the MC process. In our case, we did not 
-% assume $\mathbf{C}$ to be diagonal, but allowed for temporal correlations in the GSTH parameters, 
-% while for the remaining parameters ($Q_b$ and $H$) it was initialised with the appropriate 
-% variances. For the parameters representing the GSTH, we introduced a Gaussian temporal covariance 
-% matrix defined as
-% 
-% 
-%  	f% Its width is controlled by a temporal correlation length $L$ of approximately half ofdecade, 
-% which agrees with the resolution obtainable in this type of reconstruction \cite[e.g.,][] 
-% {Demezhko2001a}. A number of chains were started in parallel, each starting from a perturbed 
-% version of the prior which was set to the average of a GSTH derived from a Tikhonov deterministic 
-% inversion 
-% of the data set.
+paradigm \cite[see, e.g.][] {Gelman2013a} aims not at a single GSTH which is optimal in a 
+previously defined sense, but seeks to estimate the full posterior probability density function 
+(PDF), given the prior PDF and the observational data. Detailed accounts on this approach can be 
+found in \citep{Mosegaard1995a, Mosegaard2002a, Tarantola2005a}, which was used in \cite[] [amongst 
+others] {Kukkonen2011a, Kukkonen2011b, Kukkonen2015a, Rath2019a}. 
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Design of the numerical experiments}
 \label{sec:design}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The general idea for the numerical experiments presented here is to generate ``realistic'' 
-synthetic borehole te,perature profiles, where the true model, the  properites, and the 
-associated errors are knwell known. the following:
+The general idea for the numerical experiments presented here is to generate ``realistic'' synthetic 
+borehole temperature profiles, where the true model, the  properties, and the associated errors are 
+known. As the aim of this study is to the investigation of the most important sources of 
+uncertainty, we start from the ``true'' model, perturbing or varying some of the elements  of the 
+model and/or the procedure.   
 
-\subsection{Generation of Synthetic Borehole Temperature Profiles}
-To keep things wimple, we have chosen a very simple homogeneous subsurface model, with an idealized 
+To keep things simple, we have chosen a very simple homogeneous subsurface model, with an idealized 
 GSTH taken from \cite{Balling1981a}. In order to avoid an ``inverse crime'' \cite[see] [] 
 {Kaipio2005a}, these models were simulated with a numerical code developed independently 
-by \citet{Heckenbach2019a}. 
+by \citet{Heckenbach2019a}, using an explicit solver (FTCS) for the simplified heat equation
+\begin{equation}\label{eqn:heat}
+\frac{\partial T}{\partial t} + \mu \frac{\partial^2 T}{\partial z^2} = 0 \quad .
+\end{equation}
+\noindent where the diffusivity $\mu$ (m$^2$/s) is defined as  
+\begin{equation}\label{eqn:diff}
+\mu = \frac{\lambda}{\rho c_p} = \frac{\lambda}{C} \quad .
+\end{equation} 
+\noindent Note that this formulation neither does not include changes of thermal properties 
+(layering or nonlinear behavior),because it implies that $\partial \lambda/\partial z = 0$. Also, 
+any heat production is neglected. The same GSTH was also used in an iterative way to generate the 
+nonequilibrium initial values for the forward models within the inverse procedure 
+\citep{Rath2019a}. 
 
-
-\subsection{Correlated additive errors}
 In order to obtain a certain degree of realism in the synthetic BTPs, we chose to add noise to the 
 simulations. We did not only add normally distributed noise, but imposed spatial correlations on 
 the error series. For this purpose, we imposed an analytically defined exponential covariance on the 
 noise.  We employ the well-known technique \cite[see, ][]{Martinez2016a} based on the Cholesky 
-decomposition of the noise 
-covariance matrix $\mathbf{C}_{n}=\mathbf{L}^T\mathbf{L}$, producing the correlated measurements 
-by first generating normally distributed data $\mathbf{u}=\mathcal{N}(0,1)$, and then adding 
-$\sigma_n = \mathbf{L}\mathbf{u}$ to the synthetic profiles. The covariance assumed for the  the 
-simulation was the Gaussian, 
+decomposition of the noise covariance matrix $\mathbf{C}_{n}=\mathbf{L}^T\mathbf{L}$, producing the 
+correlated measurements by first generating normally distributed data $\mathbf{u}=\mathcal{N}(0,1)$, 
+and then adding $\sigma_n = \mathbf{L}\mathbf{u}$ to the synthetic profiles. The covariance assumed 
+for the simulation was the Gaussian, 
 \begin{equation}\label{eqn:covg}
 C_{i,j}^{{\text{gauss}}} = \sigma _i^2\exp \left[ {\frac{{ - {{\left| {{t_i} - 
 {t_j}} \right|}^2}}}{{2{L^2}}}} \right] \quad , 
 \end{equation}  
-\noindent but could easily be replaced by an Markovian (exponential), or Mat\'ern matrix. The error 
-amplitude amplitude is given by $\sigma_i$, while its width is controlled by a spatial
-correlation length $L$. Both are varied in the numerical experiment in Section~\ref{sec:errors}. A 
-similar procedure was employed for the perturbations of rock properties in Section~\ref{sec:props}.
+\noindent but could easily be replaced by a Markovian (exponential), or Mat\'ern matrix. The error 
+amplitude is given by $\sigma_i$, while its width is controlled by a spatial correlation 
+length $L$. Experience has shown that most measured borehole profiles can be fit to a level 
+$<$0.05~K. We have thus chosen 0.03~K, s a typical value. Realistic values of $L$ are much more 
+difficult to obtain. Both, $\sigma$ and $L$ are varied in the numerical experiment in 
+Section~\ref{sec:errors}. A similar procedure was adopted for the perturbations of rock properties 
+in Section~\ref{sec:props}.
 
 
 \begin{figure}%[htp]
@@ -428,23 +392,24 @@ $\sigma$ of 0.03~K. A Gaussian covariance (see Equation~\ref{eqn:covg}) was chos
 \label{fig:Noise}
 \end{figure}
 
-For each of the numerical experiments presented in Section~\ref{sec:results}, we ran small 
-ensembles (24-32 samples) for different error realizations. While this is surely not enough to 
-produce statistically reliable results, it gives an indication of the importance of the errors in 
-each case.   
+Using these data, we run small ensembles (20-50 samples) with different error realizations for each 
+of the numerical experiments presented here. While this is surely not enough to produce 
+statistically reliable results, it gives an indication of the importance of the errors in 
+each case. 
 
 
-
-\subsection{Generation of Synthetic Borehole Temperature Profiles}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results}\label{sec:results}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Numerical Experiment 1: Borehole temperature errors}\label{sec:errors}
 \subsection{Numerical Experiment 2: Borehole length}\label{sec:length}
 \subsection{Numerical Experiment 3: Basal heat flux}\label{sec:qb}
 \subsection{Numerical Experiment 4: Rock Properties}\label{sec:props}
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \conclusions %% \conclusions[modified heading if necessary]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Don't believe in Borehole Climatology!
 %\appendix
 
@@ -478,11 +443,6 @@ available.
 
 \bibliographystyle{copernicus} 
 \bibliography{RHetal2019}
-%% Since the Copernicus LaTeX package includes the BibTeX style file copernicus.bst,
-%% authors experienced with BibTeX only have to include the following two lines:
-%%
-%% \bibliographystyle{copernicus}
-%% \bibliography{example.bib}
 %%
 %% URLs and DOIs can be entered in your BibTeX file as:
 %%
@@ -631,18 +591,6 @@ available.
 %\end{algorithmic}
 %\end{algorithm}
 %
-%
-%%% CHEMICAL FORMULAS AND REACTIONS
-%
-%%% For formulas embedded in the text, please use \chem{}
-%
-%%% The reaction environment creates labels including the letter R, i.e. (R1), (R2), etc.
-%
-%\begin{reaction}
-%%% \rightarrow should be used for normal (one-way) chemical reactions
-%%% \rightleftharpoons should be used for equilibria
-%%% \leftrightarrow should be used for resonance structures
-%\end{reaction}
 %
 %
 %%% PHYSICAL UNITS
